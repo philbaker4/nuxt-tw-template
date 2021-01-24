@@ -20,6 +20,10 @@
         >
           GitHub
         </a>
+        <div class="first">
+          test
+          <div class="second">inside</div>
+        </div>
       </div>
     </div>
   </div>
@@ -29,12 +33,18 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss">
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
+
+.first {
+  .second {
+    @apply text-lg text-emerald-500;
+  }
+}
 .container {
   margin: 0 auto;
   min-height: 100vh;

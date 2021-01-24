@@ -16,5 +16,9 @@ module.exports = {
   ],
   plugins: ['prettier'],
   // add your custom rules here
-  rules: {},
+  rules: {
+    // maybe your other rules...
+  
+    "prettier/prettier": "warn"
+  }
 }

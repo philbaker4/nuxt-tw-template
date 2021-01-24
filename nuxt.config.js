@@ -40,5 +40,32 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  // build: {
+  //   extend(config, ctx) {
+  //     if (ctx.isDev && ctx.isClient) {
+  //       config.module.rules.push({
+  //         enforce: "pre",
+  //         test: /\.(js|vue|ts)$/,
+  //         loader: "eslint-loader",
+  //         exclude: /(node_modules)/,
+  //         options: {
+  //           fix: true,
+  //         },
+  //       });
+  //     }
+  //   },
+  // },
+  build: {
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        const options = {
+          exclude: ['node_modules'],
+          fix: true,
+          extensions: ['.js', '.vue'],
+        }
+        const EslintPlugin = require('eslint-webpack-plugin')
+        config.plugins.push(new EslintPlugin(options))
+      }
+    }
+  }
 }
